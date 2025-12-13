@@ -1,0 +1,38 @@
+:root {
+    // Light toggle
+    --bg-color: hsl(180, 20%, 95%);
+    --card-bg-color: hsl(0, 0%, 100%);
+    --color: hsl(240, 5%, 15%);
+    --primary-accent: hsl(180, 70%, 40%);
+    --primary-accent-hover: hsl(180, 70%, 35%);
+    --restart-btn: hsl(180, 15%, 85%);
+    --restart-btn-hover: hsl(180, 15%, 80%);
+    --success: hsl(120, 50%, 40%);
+    --history-color: hsl(180, 50%, 35%);
+}
+[data-theme='dark'] {
+    // Dark theme
+    --bg-color: hsl(180, 10%, 15%);
+    --card-bg-color: hsl(180, 10%, 22%);
+    --color: hsl(2, 0%, 90%);
+    --primary-accent: hsl(180, 70%, 55%);
+    --primary-accent-hover: hsl(180, 70%, 60%);
+    --restart-btn: hsl(180, 10%, 35%);
+    --restart-btn-hover: hsl(180, 10%, 30%);
+    --success: hsl(120, 70%, 60%);
+    --history-color: hsl(180, 60%, 75%);
+}
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) {
+        // Dark theme
+        --bg-color: hsl(180, 10%, 15%);
+        --card-bg-color: hsl(180, 10%, 22%);
+        --color: hsl(2, 0%, 90%);
+        --primary-accent: hsl(180, 70%, 55%);
+        --primary-accent-hover: hsl(180, 70%, 60%);
+        --restart-btn: hsl(180, 10%, 35%);
+        --restart-btn-hover: hsl(180, 10%, 30%);
+        --success: hsl(120, 70%, 60%);
+        --history-color: hsl(180, 60%, 75%);
+    }
+}

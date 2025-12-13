@@ -1,0 +1,26 @@
+@use '../util' as *;
+html {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: var(--font-inter);
+    background: var(--bg-color);
+}
+.visually-hidden {
+    position: absolute;
+    inset-inline-start: rem(-10000);
+    top: auto;
+    width: to-rem(1);
+    height: to-rem(1);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

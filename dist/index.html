@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="dist/style.css" />
+		<script defer src="dist/script.js"></script>
+		<title>Pick a Number</title>
+	</head>
+	<body>
+		<div class="container">
+			<header class="header">
+				<fieldset class="header__toggle toggle">
+					<lagend class="visually-hidden">Theme Selector</lagend>
+					<label for="light" class="visually-hidden">Light Mode</label>
+					<div class="toggle__wrapper">
+						<input
+							type="radio"
+							id="light"
+							name="theme-changer"
+							aria-label="Light Theme"
+							value="light"
+						/>
+						<input
+							type="radio"
+							id="dark"
+							name="theme-changer"
+							aria-label="Dark Theme"
+							value="dark"
+						/>
+						<span aria-hidden="true" class="toggle__button"></span>
+						<span aria-hidden="true" class="toggle__background"></span>
+					</div>
+					<label for="dark" class="visually-hidden">Dark Mode</label>
+				</fieldset>
+				<h1 class="header__title">Pick a Number</h1>
+			</header>
+			<main class="grid card">
+				<form class="form">
+					<input type="text" />
+					<div class="form__button">
+						<button type="submit">Submit Guess</button>
+						<button type="reset">Restart Game</button>
+					</div>
+				</form>
+				<section class="card__history">
+					<div class="card__history__past-guesses">
+						<h2>Past Guesses</h2>
+						<ul>
+							<li>75 - Too High</li>
+							<li>50 - You Got It!</li>
+						</ul>
+					</div>
+					<div class="card__history__correct-games">
+						<h2>Correct Game History</h2>
+						<ul>
+							<li>The nomber 100 was found in 5% attempts.</li>
+							<li>The number 25 was found in 3 attempts.</li>
+						</ul>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>

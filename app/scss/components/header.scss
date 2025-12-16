@@ -1,0 +1,15 @@
+@use '../util' as *; 
+.header {
+    margin-bottom: to-rem(32);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    @include breakpoint-down(small) {
+        align-items: start;
+        flex-direction: column-reverse;
+    }
+    &__title {
+        font-weight: 700;
+    }
+}

@@ -1,0 +1,25 @@
+@use '../util/' as *;
+.grid {
+
+}
+.card {
+    background: var(--card-bg-color);
+    &__history {
+        &__past-guesses,
+        &__correct-games {
+            margin-bottom: to-rem(8);
+            h2 {
+                margin-bottom: to-rem(16);
+            }
+            ul li {
+                margin-bottom: to-rem(8);
+            }
+        }
+        &__past-guesses {
+            margin-bottom: to-rem(40);
+        }
+        &__correct-games {
+
+        }
+    }
+}

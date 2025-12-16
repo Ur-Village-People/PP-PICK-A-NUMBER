@@ -1,0 +1,33 @@
+@use '../util' as *; 
+.form {
+    margin-bottom: to-rem(40);
+    input {
+        font-size: to-rem(20);
+        width: 100%;
+        border-radius: to-rem(8);
+        margin-bottom: to-rem(20);
+        padding: to-rem(18) to-rem(90);
+    }
+    &__button {
+        display: flex;
+        gap: to-rem(16);
+        justify-content: center;
+        button {
+            font-size: to-rem(16);
+            padding: to-rem(12) to-rem(24);
+            border-radius: to-rem(24);
+        }
+        button[type='submit'] {
+            background: var(--primary-accent);
+            &:hover {
+                background: var(--primary-accent-hover);
+            }
+        }
+        button[type='reset'] {
+            background: var(--restart-btn);
+            &:hover {
+                background: var(--restart-btn-hover);
+            }
+        }
+    }
+}

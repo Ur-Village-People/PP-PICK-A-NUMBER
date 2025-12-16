@@ -1,0 +1,8 @@
+@use '../util/' as *;
+.container {
+    max-width: to-rem(450);
+    padding: to-rem(32);
+    border-radius: to-rem(16);
+    background: var(--card-bg-color);
+    align-self: center;
+}

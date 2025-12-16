@@ -1,8 +1,12 @@
 @use '../util' as *;
 h1 {
-    font-size: rem(40);
+    font-size: to-rem(40);
     font-weight: 700;
 }
 a {
     text-decoration: none;
+}
+input,
+button {
+    border: none;
 }

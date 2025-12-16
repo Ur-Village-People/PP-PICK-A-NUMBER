@@ -1,0 +1,21 @@
+.toggle {
+    outline: none;
+    border: none;
+    &__wrapper {
+        position: relative;
+    }
+    input[type='radio'][id='dark']:checked~&__button {
+        
+    }
+    input[type='radio'][id='light']:checked~&__button {
+
+    }
+    &__button {
+        width: to-rem(240);
+        height: to-rem(240);
+        border-radius: 50%;
+    }
+    &__background {
+        position: absolute;
+    }
+}

@@ -1,4 +1,9 @@
 {
+  "name": "number-guessing-game",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "gulp build"
+  },
   "dependencies": {
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",

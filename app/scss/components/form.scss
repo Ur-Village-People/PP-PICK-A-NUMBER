@@ -17,7 +17,7 @@
     &__button {
         display: flex;
         gap: to-rem(16);
-        justify-content: stretch;
+        justify-content: center;
         button {
             font-size: to-rem(16);
             padding: to-rem(12) to-rem(24);

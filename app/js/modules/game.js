@@ -7,13 +7,10 @@ export function initGame() {
     const titleEl = document.querySelector(".header__title");
     const pastGuessesContainer = document.querySelector(".card__history__past-guesses");
     const historyContainer = document.querySelector(".card__history__correct-games");
-    
-    // Early exit if critical elements missing
     if (!formEl || !inputEl || !titleEl || !pastGuesses || !correctHistory) return;
-    
+    const MAX_ATTEMPTS = 10; 
     let targetNumber = Math.floor(Math.random() * 100) + 1;
     let attempts = 0;
-
     const toggleSections = () => {
         if (pastGuessesContainer) {
             pastGuessesContainer.style.display = pastGuesses.children.length > 0 ? "block" : "none";
@@ -22,21 +19,16 @@ export function initGame() {
             historyContainer.style.display = correctHistory.children.length > 0 ? "block" : "none";
         }
     };
-    
     toggleSections();
-
     formEl.addEventListener('submit', (event) => {
         event.preventDefault();
         const userGuess = parseInt(inputEl.value, 10);
-        
-        // Validate input
         if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
             alert("Please enter a valid number between 1 and 100");
             return;
         }
-        
         attempts++;
-
+        const remaining = MAX_ATTEMPTS - attempts;
         if (userGuess === targetNumber) {
             titleEl.textContent = "Magnificent! You nailed it!";
             pastGuesses.insertAdjacentHTML('beforeend', `
@@ -50,29 +42,35 @@ export function initGame() {
                 </li>
             `);
             inputEl.disabled = true;
-        } else {
+        } 
+        else if (attempts >= MAX_ATTEMPTS) {
+            titleEl.textContent = `Game Over! The number was ${targetNumber}`;
+            inputEl.disabled = true;
+            pastGuesses.insertAdjacentHTML('beforeend', `
+                <li class="card__history__past-guesses__incorrect">
+                    ${userGuess} - <span class="card__history__past-guesses__incorrect--low">Out of tries!</span>
+                </li>
+            `);
+        } 
+        else {
             const diff = Math.abs(userGuess - targetNumber);
             const isHigh = userGuess > targetNumber;
             const statusClass = isHigh ? "high" : "low";
             const feedback = diff <= 20 
                 ? (isHigh ? "Slightly High" : "Slightly Low")
                 : (isHigh ? "Way Too High" : "Way Too Low");
-            
             titleEl.textContent = isHigh 
-                ? "Lower! Try a smaller number." 
-                : "Higher! Aim a bit further up.";
-
+                ? `Lower! Try a smaller number. (${remaining} left)` 
+                : `Higher! Aim a bit further up. (${remaining} left)`;
             pastGuesses.insertAdjacentHTML('beforeend', `
                 <li class="card__history__past-guesses__incorrect">
                     ${userGuess} - <span class="card__history__past-guesses__incorrect--${statusClass}">${feedback}</span>
                 </li>
             `);
         }
-        
         toggleSections();
         inputEl.value = '';
     });
-
     restartEl?.addEventListener('click', () => {
         targetNumber = Math.floor(Math.random() * 100) + 1;
         attempts = 0;

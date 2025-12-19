@@ -11,15 +11,41 @@
             h2 {
                 margin-bottom: to-rem(16);
             }
+            ul {
+                list-style: none;
+            }
             ul li {
                 margin-bottom: to-rem(8);
+                padding: to-rem(12) to-rem(16);
+                border-radius: to-rem(8);
+                background: var(--history-item-bg);
+                font-size: to-rem(14);
+                border: to-rem(1) solid var(--history-border);
+                transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+            }
+            &--incorect {
+                color: var(--incorrect);
+                &--high {
+                    color: var(--hint-high);
+                }
+                &--low {
+                    color: var(--hint-low);
+                }
+            }
+            &--correct {
+                color: var(--success);
             }
         }
         &__past-guesses {
             margin-bottom: to-rem(40);
         }
         &__correct-games {
-
+            &--history {
+                color: var(--history-color);
+                &--highlight {
+                    color: var(--success);
+                }
+            }
         }
     }
 }

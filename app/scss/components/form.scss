@@ -6,25 +6,38 @@
         width: 100%;
         border-radius: to-rem(8);
         margin-bottom: to-rem(20);
-        padding: to-rem(18) to-rem(90);
+        padding: to-rem(18) to-rem(36);
+        background: var(--input-bg);
+        color: var(--color);
+        border: to-rem(1) solid var(--input-border);
+        &::placeholder {
+            color: var(--color);
+        }
     }
     &__button {
         display: flex;
         gap: to-rem(16);
-        justify-content: center;
+        justify-content: stretch;
         button {
             font-size: to-rem(16);
             padding: to-rem(12) to-rem(24);
             border-radius: to-rem(24);
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.1s ease-in-out;
+            &:active {
+                transform: scale(0.98);
+            }
         }
         button[type='submit'] {
             background: var(--primary-accent);
+            box-shadow: var(--primary-accent-shadow);
             &:hover {
                 background: var(--primary-accent-hover);
             }
         }
         button[type='reset'] {
             background: var(--restart-btn);
+            box-shadow: var(--restart-btn-shadow);
             &:hover {
                 background: var(--restart-btn-hover);
             }

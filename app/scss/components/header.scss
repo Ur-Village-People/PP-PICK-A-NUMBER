@@ -4,12 +4,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row-reverse;
+    flex-direction: row;
     @include breakpoint-down(small) {
         align-items: start;
-        flex-direction: column-reverse;
+        flex-direction: column;
+        gap: to-rem(10);
     }
     &__title {
+        font-size: to-rem(24);
         font-weight: 700;
     }
 }

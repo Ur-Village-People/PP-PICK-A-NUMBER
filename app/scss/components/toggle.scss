@@ -1,21 +1,62 @@
+@use '../util/' as *;
 .toggle {
     outline: none;
     border: none;
     &__wrapper {
         position: relative;
-    }
-    input[type='radio'][id='dark']:checked~&__button {
-        
+        height: to-rem(30);
+        width: to-rem(60);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        input[type='radio'] {
+            opacity: 0;
+            z-index: 2;
+            width: 50%;
+            height: 100%;
+            cursor: pointer;
+            margin: 0;
+            position: relative;
+        }
     }
     input[type='radio'][id='light']:checked~&__button {
-
+         inset-inline-start: to-rem(3);
+    }
+    input[type='radio'][id='dark']:checked~&__button {
+         inset-inline-start: calc(100% - to-rem(27));
+    }
+    &__wrapper:hover &__background {
+        opacity: 0.9;
     }
     &__button {
-        width: to-rem(240);
-        height: to-rem(240);
+        width: to-rem(24);
+        height: to-rem(24);
         border-radius: 50%;
+        top: to-rem(3);
+        position: absolute;
+        inset-inline-start: to-rem(3);
+        z-index: 5;
+        background-color: var(--toggle-icon);
+        -webkit-mask-image: var(--theme-icon);
+        mask-image: var(--theme-icon);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-position: center;
+        mask-position: center;
+        transition: inset-inline-start 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease-in-out;
     }
     &__background {
         position: absolute;
+        border-radius: to-rem(15);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        display: block;
+        inset-inline-start: 0;
+        pointer-events: none;
+        background: var(--toggle-bg);
+        transition: background-color 0.3s ease-in-out, opacity 0.2s ease-in-out;
     }
 }

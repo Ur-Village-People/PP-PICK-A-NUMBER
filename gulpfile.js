@@ -6,6 +6,7 @@ const cssnano = require('cssnano');
 const babel = require('gulp-babel');
 const terser = require('gulp-terser');
 const browsersync = require('browser-sync').create();
+const webpack = require('webpack-stream');
 function copyTask() {
     return src(['*.html', 'images/**/*'], {base: '.'}) 
     .pipe(dest('dist'));
@@ -23,10 +24,28 @@ function scssTask() {
     .pipe(dest('dist', {sourcemaps: '.'}));
 }
 function jsTask() {
-    return src('app/js/script.js', {sourcemaps: true})
-    .pipe(babel({presets: ['@babel/preset-env']}))
-    .pipe(terser())
-    .pipe(dest('dist', {sourcemaps: '.'}));
+    return src('app/js/script.js') 
+        .pipe(webpack({
+            mode: 'production',
+            output: {
+                filename: 'script.js',
+            },
+            module: {
+                rules: [
+                    {
+                        test: /\.js$/,
+                        exclude: /node_modules/,
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: ['@babel/preset-env']
+                            }
+                        }
+                    }
+                ]
+            }
+        }))
+        .pipe(dest('dist'));
 }
 function browserSyncServe(cb) {
     browsersync.init({
@@ -47,9 +66,9 @@ function browserSyncReload(cb) {
     cb();
 }
 function watchTask() {
-    watch('*html', browserSyncReload);
+    watch('*.html', series(copyTask, browserSyncReload));
     watch(
-        ['app/scss/**/*.scss', 'app/**/*.js'],
+        ['app/scss/**/*.scss', 'app/js/**/*.js'],
         series(scssTask, jsTask, browserSyncReload)
     );
 }

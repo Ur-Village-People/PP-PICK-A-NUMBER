@@ -16,9 +16,12 @@
 	<body>
 		<div class="container">
 			<header class="header">
+				<h1 class="header__title">Pick a Number</h1>
 				<fieldset class="header__toggle toggle">
 					<lagend class="visually-hidden">Theme Selector</lagend>
-					<label for="light" class="visually-hidden">Light Mode</label>
+					<label for="light" class="visually-hidden"
+						>Light Mode</label
+					>
 					<div class="toggle__wrapper">
 						<input
 							type="radio"
@@ -35,34 +38,38 @@
 							value="dark"
 						/>
 						<span aria-hidden="true" class="toggle__button"></span>
-						<span aria-hidden="true" class="toggle__background"></span>
+						<span
+							aria-hidden="true"
+							class="toggle__background"
+						></span>
 					</div>
 					<label for="dark" class="visually-hidden">Dark Mode</label>
 				</fieldset>
-				<h1 class="header__title">Pick a Number</h1>
 			</header>
 			<main class="grid card">
 				<form class="form">
-					<input type="text" />
+					<input
+						type="text"
+						placeholder="Enter your guess(1 - 100)"
+						id="form-input"
+					/>
 					<div class="form__button">
-						<button type="submit">Submit Guess</button>
-						<button type="reset">Restart Game</button>
+						<button type="submit" id="submit-el">
+							Submit Guess
+						</button>
+						<button type="reset" id="restart-el">
+							Restart Game
+						</button>
 					</div>
 				</form>
 				<section class="card__history">
 					<div class="card__history__past-guesses">
 						<h2>Past Guesses</h2>
-						<ul>
-							<li>75 - Too High</li>
-							<li>50 - You Got It!</li>
-						</ul>
+						<ul id="past-guesses"></ul>
 					</div>
 					<div class="card__history__correct-games">
 						<h2>Correct Game History</h2>
-						<ul>
-							<li>The nomber 100 was found in 5% attempts.</li>
-							<li>The number 25 was found in 3 attempts.</li>
-						</ul>
+						<ul id="game-history"></ul>
 					</div>
 				</section>
 			</main>

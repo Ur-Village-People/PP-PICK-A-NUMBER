@@ -1,0 +1,11 @@
+:root {
+    --theme-icon: url(../../../images/sun.svg);
+}
+[data-theme='dark'] {
+    --theme-icon: url(../../../images/moon.svg);
+}
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) {
+        --theme-icon: url(../../../images/moon.svg);
+    }
+}

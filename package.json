@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "babel-loader": "^10.0.0",
+    "gulp-javascript-obfuscator": "^1.1.6",
     "webpack-stream": "^7.0.0"
   }
 }

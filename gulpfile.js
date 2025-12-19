@@ -7,6 +7,7 @@ const babel = require('gulp-babel');
 const terser = require('gulp-terser');
 const browsersync = require('browser-sync').create();
 const webpack = require('webpack-stream');
+const obfuscator = require('gulp-javascript-obfuscator');
 function copyTask() {
     return src(['*.html', 'images/**/*'], {base: '.'}) 
     .pipe(dest('dist'));
@@ -44,6 +45,14 @@ function jsTask() {
                     }
                 ]
             }
+        }))
+        .pipe(obfuscator({
+            compact: true,
+            controlFlowFlattening: true,
+            numbersToExpressions: true,
+            simplify: true,
+            stringArray: true,
+            stringArrayThreshold: 0.75
         }))
         .pipe(dest('dist'));
 }

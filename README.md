@@ -24,3 +24,5 @@ A clean and interactive web-based game where players try to guess a secret numbe
 * Written in **Vanilla JavaScript** (ES6+).
 * Uses **Optional Chaining** (`?.`) for safer event listening.
 * Uses **Template Literals** for readable HTML injection.
+
+* Live Site URL: [- https://pp-pick-a-number.vercel.app/](- https://pp-pick-a-number.vercel.app/)

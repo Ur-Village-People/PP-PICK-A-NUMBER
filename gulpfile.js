@@ -21,7 +21,15 @@ function scssTask() {
         './app/scss/util'
     ]
 }).on('error', sass.logError))
-    .pipe(postcss([autoprefixer(), cssnano()]))
+   .pipe(postcss([
+        autoprefixer(), 
+        cssnano({
+            preset: ['advanced', {
+                discardComments: { removeAll: true },
+                reduceIdents: true
+            }]
+        })
+    ]))
     .pipe(dest('dist', {sourcemaps: '.'}));
 }
 function jsTask() {
@@ -61,6 +69,7 @@ function browserSyncServe(cb) {
         server: {
             baseDir: '.',
         },
+        files: ['*.html', 'dist/**/*'],
         notify: {
             styles: {
                 top: 'auto',

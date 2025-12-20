@@ -1,10 +1,11 @@
 @use '../util' as *;
 h1 {
-    font-size: to-rem(40);
+    font-size: to-rem(50);
     font-weight: 700;
 }
 h2 {
-    font-size: to-rem(28);
+    font-size: clamp(to-rem(20), 4vw, to-rem(24));
+    font-weight: 700;
 }
 a {
     text-decoration: none;

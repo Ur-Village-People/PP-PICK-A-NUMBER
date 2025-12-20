@@ -38,7 +38,7 @@ export function initGame() {
             `);
             correctHistory.insertAdjacentHTML('afterbegin', `
                 <li class="card__history__correct-games--history">
-                    The number <span class="card__history__correct-games--history--highlight">${userGuess}</span> was found after ${attempts} attempts
+                    The number <span class="highlight">${userGuess}</span> was found after <span class="highlight">${attempts}</span> attempts
                 </li>
             `);
             inputEl.disabled = true;

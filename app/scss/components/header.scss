@@ -5,13 +5,8 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    @include breakpoint-down(small) {
-        align-items: start;
-        flex-direction: column;
-        gap: to-rem(10);
-    }
     &__title {
-        font-size: to-rem(24);
+        font-size: to-rem(30);
         font-weight: 700;
     }
 }

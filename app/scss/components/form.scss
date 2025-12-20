@@ -2,11 +2,11 @@
 .form {
     margin-bottom: to-rem(40);
     input {
-        font-size: to-rem(20);
+       font-size: clamp(to-rem(16), 5vw, to-rem(20));
         width: 100%;
         border-radius: to-rem(8);
         margin-bottom: to-rem(20);
-        padding: to-rem(18) to-rem(36);
+        padding: clamp(to-rem(12), 4vw, to-rem(18));
         background: var(--input-bg);
         color: var(--color);
         border: to-rem(1) solid var(--input-border);
@@ -17,9 +17,19 @@
     &__button {
         display: flex;
         gap: to-rem(16);
-        justify-content: center;
+        justify-content: stretch;
+        max-width: to-rem(600);
+        margin: 0 auto;
+        @include breakpoint-down(xsmall) {
+            flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+        }
         button {
+            flex: 1;
+            max-width: 100%;
             font-size: to-rem(16);
+            color: var(--color);
             padding: to-rem(12) to-rem(24);
             border-radius: to-rem(24);
             font-weight: 600;

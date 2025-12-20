@@ -67,9 +67,8 @@ function jsTask() {
 function browserSyncServe(cb) {
     browsersync.init({
         server: {
-            baseDir: '.',
+            baseDir: 'dist',
         },
-        files: ['*.html', 'dist/**/*'],
         notify: {
             styles: {
                 top: 'auto',
